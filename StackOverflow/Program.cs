@@ -23,8 +23,6 @@ public class Program
             Console.Write($"\nNo. of posts: {Stackoverflow.TotalPosts}");
 
 
-
-
             Console.WriteLine("\n\nWhich post do you wish to see?");
             var postId = Convert.ToInt32(Console.ReadLine());
 
@@ -35,10 +33,7 @@ public class Program
                 Console.WriteLine("\nUpvote and Downvote? (Enter \"No\" if you don't want to)");
                 var input = Console.ReadLine();
 
-                if (string.IsNullOrWhiteSpace(input))
-                {
-                    throw new ArgumentNullException(input);
-                }
+                if (string.IsNullOrWhiteSpace(input)) throw new ArgumentNullException(input);
 
                 if (input.Trim().ToLower() == "upvote" || input.Trim().ToLower() == "downvote")
                 {
@@ -50,14 +45,11 @@ public class Program
                 {
                     break;
                 }
-
-
             }
 
             Console.WriteLine("\nDo you wish to add more posts? (\"Yes\" or \"No\")");
             var input2 = Console.ReadLine();
             if (!string.IsNullOrWhiteSpace(input2))
-            {
                 switch (input2.Trim().ToLower())
                 {
                     case "yes":
@@ -66,13 +58,8 @@ public class Program
                     case "no":
                         return;
                 }
-            }
             else
-            {
                 throw new ArgumentNullException(input2);
-            }
         }
-
-
     }
 }
