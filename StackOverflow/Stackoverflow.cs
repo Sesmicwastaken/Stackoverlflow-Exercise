@@ -2,38 +2,28 @@
 
 namespace StackOverflow;
 
-public class Stackoverflow
+public static class Stackoverflow
 {
 
-    private static readonly List<Post> _posts = new();
+    private static readonly List<Post> Posts = new();
 
     public static Post StorePosts
     {
-        set
-        {
-            _posts.Add(value);
-        }
+        set => Posts.Add(value);
     }
-    public static int TotalPosts
-    {
-        get
-        {
-            return _posts.Count;
-        }
+    public static int TotalPosts => Posts.Count;
 
-    }
-
-    public static void ShowPost(int postID)
+    public static void ShowPost(int postId)
     {
-        if (postID - 1 >= _posts.Count)
+        if (postId - 1 >= Posts.Count)
         {
             throw new NullReferenceException("\nPost Id is Invalid.");
         }
-        StringBuilder PostFormat = new();
-        PostFormat.Append("\nTitle: " + _posts[postID - 1].PostTitle).AppendLine().AppendLine();
-        PostFormat.Append("Asked: " + _posts[postID - 1].PostCreationTime).AppendLine().AppendLine();
-        PostFormat.Append("Description: " + _posts[postID - 1].PostDescription).AppendLine().AppendLine();
-        PostFormat.Append("Votes: " + _posts[postID - 1].NoOfVotes);
-        Console.WriteLine(PostFormat);
+        var postFormat = new StringBuilder();
+        postFormat.Append("\nTitle: " + Posts[postId - 1].PostTitle).AppendLine().AppendLine();
+        postFormat.Append("Asked: " + Posts[postId - 1].PostCreationTime).AppendLine().AppendLine();
+        postFormat.Append("Description: " + Posts[postId - 1].PostDescription).AppendLine().AppendLine();
+        postFormat.Append("Votes: " + Posts[postId - 1].NoOfVotes);
+        Console.WriteLine(postFormat);
     }
 }
