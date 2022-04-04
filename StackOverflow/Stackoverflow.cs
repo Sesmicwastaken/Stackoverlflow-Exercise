@@ -32,7 +32,7 @@ public class Stackoverflow
         StringBuilder PostFormat = new();
         PostFormat.Append("\nTitle: " + _posts[postID - 1].PostTitle).AppendLine().AppendLine();
         PostFormat.Append("Asked: " + _posts[postID - 1].PostCreationTime).AppendLine().AppendLine();
-        PostFormat.Append("Description: " + _posts[postID - 1].PostDiscription).AppendLine().AppendLine();
+        PostFormat.Append("Description: " + _posts[postID - 1].PostDescription).AppendLine().AppendLine();
         PostFormat.Append("Votes: " + _posts[postID - 1].NoOfVotes);
         Console.WriteLine(PostFormat);
     }

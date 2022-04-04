@@ -12,7 +12,7 @@ public class Program
             post.PostTitle = Console.ReadLine();
 
             Console.Write("Enter the Post Discription: ");
-            post.PostDiscription = Console.ReadLine();
+            post.PostDescription = Console.ReadLine();
 
             Console.Write("Enter the post creation date: ");
             post.PostCreationTime = Convert.ToDateTime(Console.ReadLine());
