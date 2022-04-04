@@ -35,7 +35,7 @@ public class Post
 
     public void UpvoteDownVote(string input)
     {
-        if (string.IsNullOrWhiteSpace(input) || input != "upvote" && input != "downvote")
+        if (!PostHelper.IsValid(input))
             throw new ArgumentException("Invalid Input");
 
         switch (input.Trim().ToLower())

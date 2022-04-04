@@ -35,7 +35,7 @@ public class Program
 
                 if (string.IsNullOrWhiteSpace(input)) throw new ArgumentNullException(input);
 
-                if (input.Trim().ToLower() == "upvote" || input.Trim().ToLower() == "downvote")
+                if (PostHelper.IsValid(input))
                 {
                     post.UpvoteDownVote(input.Trim().ToLower());
                     Console.Clear();
