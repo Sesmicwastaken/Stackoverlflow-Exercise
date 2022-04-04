@@ -6,7 +6,7 @@ public class Program
     {
         while (true)
         {
-            Post post = new();
+            var post = new Post();
 
             Console.Write("Enter the Post Title: ");
             post.PostTitle = Console.ReadLine();
@@ -26,16 +26,16 @@ public class Program
 
 
             Console.WriteLine("\n\nWhich post do you wish to see?");
-            int postID = Convert.ToInt32(Console.ReadLine());
+            var postId = Convert.ToInt32(Console.ReadLine());
 
 
-            Stackoverflow.ShowPost(postID);
+            Stackoverflow.ShowPost(postId);
             while (true)
             {
                 Console.WriteLine("\nUpvote and Downvote? (Enter \"No\" if you don't want to)");
-                string input = Console.ReadLine();
+                var input = Console.ReadLine();
 
-                if (String.IsNullOrWhiteSpace(input))
+                if (string.IsNullOrWhiteSpace(input))
                 {
                     throw new ArgumentNullException(input);
                 }
@@ -44,7 +44,7 @@ public class Program
                 {
                     post.UpvoteDownVote(input.Trim().ToLower());
                     Console.Clear();
-                    Stackoverflow.ShowPost(postID);
+                    Stackoverflow.ShowPost(postId);
                 }
                 else if (input.Trim().ToLower() == "no")
                 {
@@ -55,21 +55,22 @@ public class Program
             }
 
             Console.WriteLine("\nDo you wish to add more posts? (\"Yes\" or \"No\")");
-            string input2 = Console.ReadLine();
-            if (String.IsNullOrWhiteSpace(input2))
+            var input2 = Console.ReadLine();
+            if (!String.IsNullOrWhiteSpace(input2))
+            {
+                switch (input2.Trim().ToLower())
+                {
+                    case "yes":
+                        Console.Clear();
+                        continue;
+                    case "no":
+                        return;
+                }
+            }
+            else
             {
                 throw new ArgumentNullException(input2);
             }
-            if (input2.Trim().ToLower() == "yes")
-            {
-                Console.Clear();
-                continue;
-            }
-            else if (input2.Trim().ToLower() == "no")
-            {
-                return;
-            }
-
         }
 
 
