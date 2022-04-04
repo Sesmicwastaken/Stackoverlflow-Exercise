@@ -1,83 +1,61 @@
-﻿namespace StackOverflow
+﻿namespace StackOverflow;
+
+public class Post
 {
-    public class Post
+    private string? _postDescription;
+    private string? _postTitle;
+
+    public string? PostTitle
     {
-        private string _postTitle;
-        private string _postDiscription;
-        private DateTime _postCreationTime;
-        private int _votes = 0;
-
-
-        public string PostTitle
+        get => _postTitle;
+        set
         {
-            get { return _postTitle; }
-            set
-            {
-                if (!String.IsNullOrWhiteSpace(value))
-                { _postTitle = value; }
-                else
-                {
-                    throw new ArgumentNullException(value);
-                }
-            }
+            if (!string.IsNullOrWhiteSpace(value))
+                _postTitle = value;
+            else
+                throw new ArgumentNullException(value);
         }
+    }
 
-        public string PostDiscription
+    public string? PostDescription
+    {
+        get => _postDescription;
+        set
         {
-            get { return _postDiscription; }
-            set
-            {
-                if (!String.IsNullOrWhiteSpace(value))
-                { _postDiscription = value; }
-                else
-                {
-                    throw new ArgumentNullException(value);
-                }
-            }
+            if (!string.IsNullOrWhiteSpace(value))
+                _postDescription = value;
+            else
+                throw new ArgumentNullException(value);
         }
-        public DateTime PostCreationTime
+    }
+
+    public DateTime PostCreationTime { get; set; }
+
+    public int NoOfVotes { get; private set; }
+
+    public void UpvoteDownVote(string input)
+    {
+        if (!PostHelper.IsValid(input))
+            throw new ArgumentException("Invalid Input");
+
+        switch (input.Trim().ToLower())
         {
-            get { return _postCreationTime; }
-            set
-            {
-
-                _postCreationTime = value;
-            }
-        }
-        public int NoOfVotes
-        {
-            get
-            {
-                return _votes;
-            }
-        }
-        public void UpvoteDownvote(string input)
-        {
-
-
-            if (String.IsNullOrWhiteSpace(input) || input != "upvote" && input != "downvote")
-            {
-                throw new ArgumentException("Invalid Input");
-            }
-
-            if (input.Trim().ToLower() == "upvote")
-            {
+            case "upvote":
                 UpVote();
-            }
-            else if (input.Trim().ToLower() == "downvote")
-            {
+                break;
+            case "downvote":
                 DownVote();
-            }
+                break;
         }
-        internal void UpVote()
-        {
-            _votes += 1;
-        }
-        internal void DownVote()
-        {
-            _votes -= 1;
-        }
+    }
 
+    private void UpVote()
+    {
+        NoOfVotes += 1;
+    }
 
+    private void DownVote()
+    {
+        NoOfVotes -= 1;
     }
 }
