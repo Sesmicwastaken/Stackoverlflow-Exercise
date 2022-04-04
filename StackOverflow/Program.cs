@@ -20,7 +20,7 @@ public class Program
 
             Stackoverflow.StorePosts = post;
 
-            Console.Write("\nNo. of posts: " + Stackoverflow.TotalPosts);
+            Console.Write($"\nNo. of posts: {Stackoverflow.TotalPosts}");
 
 
 
@@ -56,7 +56,7 @@ public class Program
 
             Console.WriteLine("\nDo you wish to add more posts? (\"Yes\" or \"No\")");
             var input2 = Console.ReadLine();
-            if (!String.IsNullOrWhiteSpace(input2))
+            if (!string.IsNullOrWhiteSpace(input2))
             {
                 switch (input2.Trim().ToLower())
                 {

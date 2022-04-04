@@ -20,10 +20,10 @@ public static class Stackoverflow
             throw new NullReferenceException("\nPost Id is Invalid.");
         }
         var postFormat = new StringBuilder();
-        postFormat.Append("\nTitle: " + Posts[postId - 1].PostTitle).AppendLine().AppendLine();
-        postFormat.Append("Asked: " + Posts[postId - 1].PostCreationTime).AppendLine().AppendLine();
-        postFormat.Append("Description: " + Posts[postId - 1].PostDescription).AppendLine().AppendLine();
-        postFormat.Append("Votes: " + Posts[postId - 1].NoOfVotes);
+        postFormat.Append($"\nTitle: {Posts[postId - 1].PostTitle}").AppendLine().AppendLine();
+        postFormat.Append($"Asked: {Posts[postId - 1].PostCreationTime}").AppendLine().AppendLine();
+        postFormat.Append($"Description: {Posts[postId - 1].PostDescription}").AppendLine().AppendLine();
+        postFormat.Append($"Votes: {Posts[postId - 1].NoOfVotes}");
         Console.WriteLine(postFormat);
     }
 }
