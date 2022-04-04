@@ -37,7 +37,7 @@ public class Post
 
     public int NoOfVotes { get; private set; }
 
-    public void UpvoteDownvote(string input)
+    public void UpvoteDownVote(string input)
     {
         if (string.IsNullOrWhiteSpace(input) || input != "upvote" && input != "downvote")
         {

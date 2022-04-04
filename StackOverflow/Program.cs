@@ -42,7 +42,7 @@ public class Program
 
                 if (input.Trim().ToLower() == "upvote" || input.Trim().ToLower() == "downvote")
                 {
-                    post.UpvoteDownvote(input.Trim().ToLower());
+                    post.UpvoteDownVote(input.Trim().ToLower());
                     Console.Clear();
                     Stackoverflow.ShowPost(postID);
                 }
