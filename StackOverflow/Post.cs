@@ -2,10 +2,9 @@
 {
     public class Post
     {
-        private string _postTitle;
-        private string _postDiscription;
-        private DateTime _postCreationTime;
-        private int _votes = 0;
+        private string? _postTitle;
+        private string? _postDescription;
+
 
 
         public string PostTitle
@@ -24,58 +23,45 @@
 
         public string PostDiscription
         {
-            get { return _postDiscription; }
+            get { return _postDescription; }
             set
             {
                 if (!String.IsNullOrWhiteSpace(value))
-                { _postDiscription = value; }
+                { _postDescription = value; }
                 else
                 {
                     throw new ArgumentNullException(value);
                 }
             }
         }
-        public DateTime PostCreationTime
-        {
-            get { return _postCreationTime; }
-            set
-            {
-
-                _postCreationTime = value;
-            }
-        }
-        public int NoOfVotes
-        {
-            get
-            {
-                return _votes;
-            }
-        }
-        public void UpvoteDownvote(string input)
+        public DateTime PostCreationTime { get; set; }
+        public int NoOfVotes { get; private set; }
+        
+        public void UpVoteDownVote(string input)
         {
 
 
-            if (String.IsNullOrWhiteSpace(input) || input != "upvote" && input != "downvote")
-            {
-                throw new ArgumentException("Invalid Input");
-            }
+            if (PostHelper.IsValid(input)) throw new ArgumentException("Invalid Input");
+            
+                     
 
-            if (input.Trim().ToLower() == "upvote")
+            switch (input.Trim().ToLower())
             {
-                UpVote();
-            }
-            else if (input.Trim().ToLower() == "downvote")
-            {
-                DownVote();
+                case "upvote":
+                    UpVote();
+                    break;
+                case "downvote":
+                    DownVote();
+                    break;
             }
         }
-        internal void UpVote()
+        private void UpVote()
         {
-            _votes += 1;
+            NoOfVotes ++;
         }
-        internal void DownVote()
+        private void DownVote()
         {
-            _votes -= 1;
+            NoOfVotes --;
         }
 
 
