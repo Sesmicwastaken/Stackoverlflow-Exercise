@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sesmic\\StackOverFlow\\StackOverflow\\StackOverflow\\StackOverflow.csproj",
+      "projectUniqueName": "C:\\Users\\Sesmic\\StackOverFlow\\StackOverflow\\StackOverflow.csproj",
       "projectName": "StackOverflow",
-      "projectPath": "C:\\Users\\Sesmic\\StackOverFlow\\StackOverflow\\StackOverflow\\StackOverflow.csproj",
+      "projectPath": "C:\\Users\\Sesmic\\StackOverFlow\\StackOverflow\\StackOverflow.csproj",
       "packagesPath": "C:\\Users\\Sesmic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sesmic\\StackOverFlow\\StackOverflow\\StackOverflow\\obj\\",
+      "outputPath": "C:\\Users\\Sesmic\\StackOverFlow\\StackOverflow\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
